@@ -1,10 +1,15 @@
 import { Component } from '@angular/core';
+import { LanguageService } from './language.service';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+    selector: 'app-root',
+    template: `
+    <app-header></app-header>
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>    `,
+    providers: [LanguageService]
 })
 export class AppComponent {
-  title = 'app';
+    constructor(private langService: LanguageService) {}
+
 }

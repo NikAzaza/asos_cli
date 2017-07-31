@@ -1,0 +1,44 @@
+<section id="filter">
+    <div class="container">
+        <aside class="col-sm-3 col-lg-2 filter-list just">
+            <div>
+                 <h2 class="aside-name">{{'filter'| translate}}</h2>
+                 <button (click)="clearFilter()" class="btn btn-danger">{{'clear' | translate}}</button>
+            </div>
+            
+            <div class="category-wrap" *ngFor="let name of categoryNames; let i = index">
+                <div class="panel-group" id="collapse-group">
+
+                    <div class="panel-heading">
+                        <h4 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#collapse-group" href="#filter-cat{{i}}">
+                                <span class="caret"></span>
+                                {{name | translate}}
+                            </a>
+                        </h4>
+                    </div><!-- End of panel-heading-->
+
+                    <div id="filter-cat{{i}}" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="filter-cat-list">
+                               <li *ngFor="let item of categoryData[i]; let ind = index;">
+                                    <input type="checkbox" id="{{i}}_{{ind}}">
+                                    <label for="{{i}}_{{ind}}" (click)="applyFilter(i,ind)">
+                                        {{item | translate}}
+                                    </label>    
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>         
+        </aside><!-- End of aside.filter-list-->
+
+        <div class="col-sm-9 col-lg-10 products-list-wrapper">
+            <app-products-list [parentSubject]="parentSubject"></app-products-list>
+        </div>
+    </div>
+</section>
+
+

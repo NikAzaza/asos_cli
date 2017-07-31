@@ -1,0 +1,132 @@
+<header id="header"> 
+    <div class="nav-sites">
+        <div class="container">
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active" routerLink="/"><a >{{'header.asos'| translate}} </a></li>
+                <li role="presentation" id="marketplace" >
+                    <a href="https://marketplace.asos.com" target="_blank">{{'header.market'| translate}}</a>
+                    <div class="hint hidden-xs">
+                        <p class="hint-text">Home to the world's hottest <br>new brands and vintage bouyiques<br></p>
+                    </div>
+                </li>     
+            </ul>
+        </div>  
+    </div>
+    
+    
+    <nav class="navbar navbar-default">
+        <div class="container">
+            
+            <div class="navbar-header-container clearfix">
+                <div class="navbar-header">
+                    <a class="navbar-brand" routerLink="/">
+                        <img src="https://assets.asosservices.com/MasterLayout/images/_header/asos-logo.png" alt="ASOS Discover Fashion Online">
+                    </a>
+                </div>
+            </div><!--  End of Navbar-header-->
+        
+            <div class="form-search-container">
+                <form class="navbar-form" #formSearch="ngForm">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="{{'header.search'| translate}}" name="search" [(ngModel)]="searchString">
+                    </div>
+                    <span class="search-buttons">
+                        <button class="btn btn-default clear-search" (click)="clearSearchString()" [ngClass]="{invisible: !searchString.length}">
+                            <i class="glyphicon glyphicon-remove-sign" ></i>
+                        </button>
+                        <button type="submit" class="btn btn-default start-search" >
+                            <i class="glyphicon glyphicon-search"></i>
+                        </button>
+                    </span>
+                    
+                </form>
+            </div><!-- End of Form-search -->
+
+            <div class="welcome-navbar-container pull-right">
+                <ul class="nav navbar-nav clearfix">
+                    <li>
+                        <div class="dropdown pull-right">
+                            <a href="#" class="dropdown-toggle " data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{langService.getLang() }}<span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a [routerLink]="" (click)="changeLanguage('en')">English</a></li>
+                                <li><a [routerLink]="" (click)="changeLanguage('ru')">Russian</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                            </ul>
+                        </div>
+                    </li>
+                        
+                    <li>
+                        <ul class="sign-in-list pull-right">
+                            <li><a [routerLink]="" class="welcome">{{'header.welcome-to'| translate}} 
+                                <span class="big-text">{{'header.asos'| translate}}</span></a>
+                            </li>
+                            <li><a href="#">{{'header.join'| translate}}</a></li>
+                            <li><a href="#">{{'header.sign-in'| translate}}</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- End of welcome-navbar  -->
+            
+        </div>
+
+        <div class="container">
+            <div class="navbar-categories category-main pull-left">
+                <ul class="navbar">
+                    <li><a routerLink="/"><i class="glyphicon glyphicon-home"></i></a></li><!--
+                    --><li id="woman" (mouseenter)="showCategory(category1, item1)" #item1 
+                        (mouseleave)="hideCategory(category1, item1)"><a [routerLink]="['/products', 'women']">
+                            {{'header.women'| translate}}</a>
+                    </li><!--
+                    --><li id="man" (mouseenter)="showCategory(category2, item2)" #item2 
+                        (mouseleave)="hideCategory(category2, item2)"><a [routerLink]="['/products', 'men']"
+                            >{{'header.men'| translate}}</a></li>
+                </ul>
+
+                <div class="hidden-categories" id="category-woman" #category1 
+                    (mouseenter)="showCategory(category1, item1)" 
+                    (mouseleave)="hideCategory(category1, item1)">
+
+                    <section *ngFor="let category of womenNames">
+                        <div class="category-section-title">
+                            <span>{{category | translate}}</span>
+                        </div>
+                        <ul class="section-list">
+                             <li><a [routerLink]="['/products', 'women']">{{'all categories' | translate}}</a></li>
+                            <li *ngFor="let link of women[category]">
+                                <a [routerLink]="['/products','women']" [queryParams]=link.params>{{link.value | translate}}</a> 
+                            </li>
+                        </ul>
+                    </section>
+                </div><!-- End of women links-->
+
+
+                <div class="hidden-categories" id="category-man" #category2
+                    (mouseenter)="showCategory(category2, item2)" 
+                        (mouseleave)="hideCategory(category2, item2)">
+
+                    <section *ngFor="let category of menNames">
+                        <div class="category-section-title">
+                            <span>{{category | translate}}</span>
+                        </div>
+                        <ul class="section-list">
+                             <li><a [routerLink]="['/products', 'men']">{{'all categories' | translate}}</a></li>
+                            <li *ngFor="let link of men[category]">
+                                <a [routerLink]="['/products','men']" [queryParams]=link.params>{{link.value | translate}}</a> 
+                            </li>
+                        </ul>
+                    </section>
+                </div><!-- End of men links-->
+            </div><!-- End of main cathegory-->
+            
+            <div class="navbar-categories category-user pull-right">
+                <ul class="navbar">
+                    <li><a [routerLink]="">{{'header.help'| translate}}</a></li>
+                    <li><a [routerLink]="">{{'header.my-account'| translate}}</a></li>
+                    <li><a [routerLink]="">{{'header.saved-items'| translate}}</a></li>
+                    <li><a [routerLink]="">{{'header.bag'| translate}}</a></li>
+                </ul>
+            </div><!-- End of main cathegory-->
+        </div>
+    </nav><!-- End of navbar-default-->
+</header> 

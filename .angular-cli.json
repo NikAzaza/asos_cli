@@ -9,7 +9,17 @@
       "outDir": "dist",
       "assets": [
         "assets",
-        "favicon.ico"
+        "favicon.ico",
+        "products200-men.json",
+        "products200-women.json",
+        "filter-category.json",
+        "header-links.json",
+        "products-men.json",
+        "products-women.json",
+        "products.json",
+        "footer-links.json",
+        "i18n/en.json",
+        "i18n/ru.json"
       ],
       "index": "index.html",
       "main": "main.ts",
@@ -21,7 +31,8 @@
       "styles": [
         "styles.css"
       ],
-      "scripts": [],
+      "scripts": [
+      ],
       "environmentSource": "environments/environment.ts",
       "environments": {
         "dev": "environments/environment.ts",

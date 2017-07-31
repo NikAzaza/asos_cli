@@ -1,0 +1,12 @@
+{
+    "women": {
+        "products": [{"value":"Брюки","params":{"type":"Брюки"}},{"value":"Джемперы","params":{"type":"Джемперы"}},{"value":"Джинсы","params":{"type":"Джинсы"}},{"value":"Кардиганы","params":{"type":"Кардиганы"}},{"value":"Колготки","params":{"type":"Колготки"}},{"value":"Комбинезоны","params":{"type":"Комбинезоны"}},{"value":"Косметика","params":{"type":"Косметика"}},{"value":"Куртки","params":{"type":"Куртки"}},{"value":"Пальто","params":{"type":"Пальто"}},{"value":"Платья","params":{"type":"Платья"}}],
+        "brands": [{"value":"Abbott Lyon","params":{"brand":"Abbott Lyon"}},{"value":"Adidas","params":{"brand":"Adidas"}},{"value":"Aeryne","params":{"brand":"Aeryne"}},{"value":"Defend","params":{"brand":"Defend"}},{"value":"Armani Exchange","params":{"brand":"Armani Exchange"}},{"value":"Bec & Bridge","params":{"brand":"Bec & Bridge"}},{"value":"Daisy Street Plus","params":{"brand":"Daisy Street Plus"}},{"value":"Elise Ryan","params":{"brand":"Elise Ryan"}},{"value":"Marc Jacobs","params":{"brand":"Marc Jacobs"}},{"value":"New Look Plus","params":{"brand":"New Look Plus"}}],
+        "edits": [{"value":"style 1","params":{}},{"value":"style 2","params":{}},{"value":"style 3","params":{}},{"value":"style 4","params":{}}]
+    },
+    "men": {
+        "products": [{"value":"Cвитшоты","params":{"type":"Cвитшоты"}},{"value":"Блейзеры","params":{"type":"Блейзеры"}},{"value":"Ботинки","params":{"type":"Ботинки"}},{"value":"Брюки","params":{"type":"Брюки"}},{"value":"Джинсы","params":{"type":"Джинсы"}},{"value":"Комбинезоны","params":{"type":"Комбинезоны"}},{"value":"Кроссовки","params":{"type":"Кроссовки"}},{"value":"Куртки","params":{"type":"Куртки"}},{"value":"Майки","params":{"type":"Майки"}},{"value":"Рубашки","params":{"type":"Рубашки"}}],
+        "brands": [{"value":"Cheap Monday","params":{"brand":"Cheap Monday"}},{"value":"Cheap Monday","params":{"brand":"Cheap Monday"}},{"value":"Crooked Tongues","params":{"brand":"Crooked Tongues"}},{"value":"Defend London","params":{"brand":"Defend London"}},{"value":"Diesel","params":{"brand":"Diesel"}},{"value":"Dolce & Gabbana","params":{"brand":"Dolce & Gabbana"}},{"value":"Ellesse","params":{"brand":"Ellesse"}},{"value":"Emporio Armani","params":{"brand":"Emporio Armani"}},{"value":"Fred Perry","params":{"brand":"Fred Perry"}},{"value":"G-Star","params":{"brand":"G-Star"}}],
+        "edits": [{"value":"simple text","params":{}},{"value":"example","params":{}},{"value":"just text","params":{}},{"value":"style 4","params":{}}]
+    }
+}

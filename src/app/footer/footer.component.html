@@ -1,0 +1,50 @@
+<footer id="footer">
+    <div class="navbar-default">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 col-md-offset-3 newsletter">
+                <span class="subscribe">{{'footer.subscribe' | translate}}</span>
+                 <form class="navbar-form">
+                    <div class="form-group">
+                        <input type="text" class="form-control" placeholder="{{'footer.enter-email' | translate}}"
+                            name="usersEmail" [(ngModel)]="usersEmail">
+                    </div>
+                    <button type="submit" class="btn btn-default">{{'header.women'|translate}}</button>
+                    <button type="submit" class="btn btn-default">{{'header.men'|translate}}</button>
+                </form> 
+                </div><!-- End of newsletter-->
+            </div>
+        </div>  
+    </div>
+        
+    <div class="footer-info">
+        <div class="container">
+            <section class="info-section" *ngFor="let category of linksNames">
+                <h6 class="info-title">{{ 'footer.'+category | translate}}</h6>   
+
+                <ul class="info">
+                    <li *ngFor="let link of links[category]">
+                        <a href="{{link.ref}}"> {{ 'footer.'+link.value  | translate }}</a>
+                    </li>
+                </ul>
+            </section>
+        </div>
+    </div> <!-- End of footer-info-->  
+
+    <div class="footer-info">
+        <div class="container">
+            <div class="row ">
+                <div class="col-sm-2">
+                    <img alt="" src="http://content.asos-media.com/~/media/010101120000ru-RU/Images/global/footer/comodo-lock.gif">
+                </div>
+                <div class="col-sm-8">
+
+                </div>
+
+                <div class="col-sm-2">
+                    <span class="copyright">&copy; 2017 asos.com Ltd</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>

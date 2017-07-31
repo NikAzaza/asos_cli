@@ -1,0 +1,47 @@
+/* ======== Products list ======= */
+#products ul.products {
+    display: block;
+    padding: 0;
+    list-style: none;
+}
+#products ul.products>li{
+    min-height: 50px;
+    padding: 15px 20px 10px;
+    font-family: Tahoma, Verdana, sans-serif;
+}
+
+#products .products .product-image{
+    width: 100%;
+}
+
+#products .products .product-name{
+    display: block;
+    font-size: 12px;
+    color: #666;  
+    height: 34px;
+    overflow: hidden;
+}
+#products .products .product-name:hover {
+    text-decoration: underline #666;
+}
+
+#products .products .product-cost {
+    display: block;
+    font-size: 11px;
+    color: #000;
+    font-weight: bolder;
+}
+
+#empty-products-list{
+    border-radius: 5px;
+    border: 1px solid #000;
+}
+#empty-products-list .row{
+    margin: 0;
+    text-align: center;
+}
+
+#empty-products-list .glyphicon {
+    font-size: 20px;
+    color: #666;
+}

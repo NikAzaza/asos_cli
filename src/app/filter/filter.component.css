@@ -1,0 +1,66 @@
+#filter >.container{
+    border-top: 1px solid #E3E3E3;
+}
+
+.just {
+    border: 1px solid green;
+    min-height: 200px;
+    height: auto;
+}
+
+/* ======== aside ======= */
+#filter .filter-list .category-wrap{
+    border-top: 1px solid #999;
+}
+
+#filter .filter-list h2.aside-name{
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 17px;
+    text-transform: uppercase;
+}
+#filter .panel-group{
+    margin-bottom: 0;
+}
+#filter .panel-heading{
+    padding-left: 5px;
+}
+
+#filter .panel-heading a {
+    font-size: 15px;
+}
+
+#filter .panel-body{
+    padding: 0 5px;
+}
+
+#filter .filter-cat-list{
+    padding: 0;
+    list-style: none;
+    height: 100px;
+    width: 100%;
+    overflow-y: scroll;  
+    overflow-x: hidden;
+}
+
+#filter .filter-cat-list li {
+    display: block;
+    line-height: 18px;
+    position: relative;
+    margin: 3px 0;
+}
+
+#filter .filter-cat-list label,
+#filter .filter-cat-list input {
+    margin: 0;
+}
+
+#filter .filter-cat-list label {
+    font-weight: normal;
+    position: absolute;
+    top: -3px;
+    left: 15px;
+    width: 100%;
+    font-size: 14px;
+    overflow-x: hidden;
+}
+

@@ -1,0 +1,26 @@
+{
+    "questions": [
+        {"value": "Help", "ref": "#"},
+        {"value": "Track Order", "ref": "#"},
+        {"value": "Delivery", "ref": "#"},
+        {"value": "Returns", "ref": "#"}
+    ],
+    "whats in store": [
+        {"value": "Women", "ref": "#"},
+        {"value": "Men", "ref": "#"},
+        {"value": "Buy Gift Vouchers", "ref": "#"}
+    ],
+    "follow asos": [
+        {"value": "Facebook", "ref": "https://www.facebook.com/"},
+        {"value": "Twitter", "ref": "https://www.twitter.com"},
+        {"value": "Youtube", "ref": "https://www.youtube.com/"}
+    ],
+    "more about asos": [ {"value": "Corporate Responsibility", "ref": "#"},
+        {"value": "Jobs at ASOS", "ref": "#"},
+        {"value": "Investors", "ref": "#"}
+    ],
+    "more asos sites": [ 
+        {"value": "Mobile and ASOS apps", "ref": "#"},
+        {"value": "Marketplace", "ref": "#"}
+    ]
+}
