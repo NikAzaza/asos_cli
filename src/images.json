@@ -1,0 +1,10 @@
+{
+    "logo": {
+        "src":"https://assets.asosservices.com/MasterLayout/images/_header/asos-logo.png",
+        "alt":"ASOS Discover Fashion Online"
+    },
+    "body": {
+        "src": "http://content.asos-media.com/-/media/homepages/unisex/generic-hp/may-2017/generic-hp-summer.jpg",
+        "alt": "Main image"
+    }
+}

@@ -3,13 +3,9 @@ import { LanguageService } from './language.service';
 
 @Component({
     selector: 'app-root',
-    template: `
-    <app-header></app-header>
-    <router-outlet></router-outlet>
-    <app-footer></app-footer>    `,
+    templateUrl: './app.component.html',
     providers: [LanguageService]
 })
 export class AppComponent {
-    constructor(private langService: LanguageService) {}
-
+    constructor(private languageService: LanguageService) {}
 }

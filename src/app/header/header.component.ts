@@ -1,52 +1,55 @@
 import { Component, OnInit, Input} from '@angular/core';
 import { NgForm} from '@angular/forms';
 
-import { HiddenMenuService } from './hover-hidden-menu.service';
-import { HiddenCathedoriesLinksService } from './hidden-categories-links.service';
+import { HeaderLinksService } from './header-links.service';
 import { LanguageService } from './../language.service';
 
 import { LinkItem } from './../source/link-item';
 import { HeaderLinkItem } from './../source/header-link-item';
 
 @Component({
-   // moduleId: module.id,
+    moduleId: module.id,
     selector: 'app-header',
     templateUrl: './header.component.html',
     styleUrls: [ './header.component.css'],
     providers: [
-                HiddenMenuService,
-                HiddenCathedoriesLinksService
+                HeaderLinksService
              ]
 })
 export class HeaderComponent implements OnInit {
 
-    searchString = '';
+    private searchString = '';
+    private logo: Object = {};
 
-    women: Object = {};
-    womenNames: Array<string> = [];
+    private women: Object = {};
+    private womenNames: Array<string> = [];
 
-    men: Object = {};
-    menNames: Array<string> = [];
+    private men: Object = {};
+    private menNames: Array<string> = [];
 
 
-    constructor(
-        private hiddenMenuService: HiddenMenuService,
-        private hiddenLinks: HiddenCathedoriesLinksService,
-        private langService: LanguageService) {}
 
-    ngOnInit(): void {
-       this.hiddenLinks.getCategories('women').subscribe((obj: Object) => {
-           this.women = obj;
+    constructor(private headerLinks: HeaderLinksService,
+                private langService: LanguageService) {}
 
-           this.womenNames = [];
-           for (let key in this.women) {
-               if (this.women.hasOwnProperty(key)) {
-                   this.womenNames.push(key);
-               }
-           }
-       });
+    ngOnInit() {
+        this.headerLinks.getLogo().subscribe((image: Object) => {
+            this.logo['src'] = image['src'];
+            this.logo['alt'] = image['alt'];
+        });
 
-       this.hiddenLinks.getCategories('men').subscribe((obj: Object) => {
+        this.headerLinks.getCategories('women').subscribe((obj: Object) => {
+            this.women = obj;
+
+            this.womenNames = [];
+            for (let key in this.women) {
+                if (this.women.hasOwnProperty(key)) {
+                    this.womenNames.push(key);
+                }
+            }
+        });
+
+       this.headerLinks.getCategories('men').subscribe((obj: Object) => {
             this.men = obj;
 
             this.menNames = [];
@@ -59,18 +62,18 @@ export class HeaderComponent implements OnInit {
     }
 
 
-    showCategory(showElem: HTMLElement, hoverElem: HTMLElement) {
-        this.hiddenMenuService.showHiddenCategory(showElem, hoverElem);
+    private showCategory(showElem: HTMLElement, hoverElem: HTMLElement) {
+        this.headerLinks.showHiddenCategory(showElem, hoverElem);
     }
-    hideCategory(showElem: HTMLElement, hoverElem: HTMLElement) {
-        this.hiddenMenuService.hideHiddenCategory(showElem, hoverElem);
+    private hideCategory(showElem: HTMLElement, hoverElem: HTMLElement) {
+        this.headerLinks.hideHiddenCategory(showElem, hoverElem);
     }
 
-    clearSearchString() {
+    private clearSearchString() {
         this.searchString = '';
     }
 
-    changeLanguage(lang: string) {
+    private changeLanguage(lang: string) {
         this.langService.changeLang(lang);
     }
 

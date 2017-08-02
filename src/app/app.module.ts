@@ -15,18 +15,13 @@ import { FilterComponent } from './filter/filter.component';
 import { BodyComponent } from './body/body.component';
 
 import { LanguageService } from './language.service';
+import { appRoutes } from './app.routes';
 
 import { AppComponent } from './app.component';
 
 export function createTranslateLoader(http: HttpClient) {
     return new TranslateHttpLoader(http, './i18n/', '.json');
 }
-
-const appRoutes: Routes = [
-  {path: '', component: BodyComponent},
-  {path: 'products/:gender', component: FilterComponent},
-  {path: '**', redirectTo: '/'}
-];
 
 @NgModule({
     imports:
@@ -47,7 +42,6 @@ const appRoutes: Routes = [
       [ AppComponent, ProductsListComponent,
         BodyComponent, HeaderComponent,
         FooterComponent, FilterComponent
-        // LanguageService
       ],
     providers: [LanguageService],
     bootstrap:    [ AppComponent ]

@@ -18,17 +18,17 @@ import { Product } from './../source/product';
 })
 export class FilterComponent implements OnInit {
     // Объект со всеми категориями
-    allFiltres: Object = {};
+    private allFiltres: Object = {};
     // Объект со всеми фильтрами по текущему гендеру
-    genderFilter: Object = {};
+    private genderFilter: Object = {};
 
     // Массив, элементами которого являются массивы категорий
-    categoryData: Array<Array<string>> = [];
+    private categoryData: Array<Array<string>> = [];
     // массив с именами категорий
-    categoryNames: String[] = [];
+    private categoryNames: String[] = [];
 
-    resultFilter: Object = {};
-    parentSubject: Subject<Object> = new Subject();
+    private resultFilter: Object = {};
+    private parentSubject: Subject<Object> = new Subject();
 
     notifyChildren() {
         this.parentSubject.next(this.resultFilter);
@@ -38,9 +38,9 @@ export class FilterComponent implements OnInit {
                 private router: Router,
                 private activateRoute: ActivatedRoute,
                 private elemRef: ElementRef,
-                private langService: LanguageService) { }
+                private languageService: LanguageService) { }
 
-    ngOnInit(): void {
+    ngOnInit() {
         this.clearCheckBoxes();
 
         this.categories.getCategories().subscribe((obj: Object) => {
@@ -55,7 +55,7 @@ export class FilterComponent implements OnInit {
         });
     }
 
-    reloadFilter() {
+    private reloadFilter() {
         let newGender = this.activateRoute.snapshot.params['gender'];
 
         this.genderFilter = {};
@@ -75,7 +75,7 @@ export class FilterComponent implements OnInit {
         }
     }
 
-    clearFilter() {
+    private clearFilter() {
         this.resultFilter = {};
 
         let gender = this.activateRoute.snapshot.params['gender'];
@@ -85,7 +85,7 @@ export class FilterComponent implements OnInit {
         this.notifyChildren();
     };
 
-    clearCheckBoxes() {
+    private clearCheckBoxes() {
         for (let i = 0; i < this.categoryNames.length; i++) {
             for (let j = 0; j < this.categoryData[i].length; j++) {
                 let elem = document.getElementById(i + '_' + j);
@@ -96,21 +96,21 @@ export class FilterComponent implements OnInit {
         }
     }
 
-    applyFilter(p1: number, p2: number){
-        let el = document.getElementById(p1 + '_' + p2);
+    private applyFilter(categoryNumber: number, checkBoxNumber: number) {
+        let el = document.getElementById(categoryNumber + '_' + checkBoxNumber);
 
-        let category = '' + this.categoryNames[p1];
-        let item = this.genderFilter[category][p2];
+        let category = '' + this.categoryNames[categoryNumber];
+        let item = this.genderFilter[category][checkBoxNumber];
 
 
         let urlParams = this.activateRoute.snapshot.queryParams;
-        let hasInUrl = false; // Is item in url?
+        let hasInUrl:boolean = false; // Is item in url?
 
         // Check equal filter in category and in url
         for (let key in urlParams) {
             if (urlParams.hasOwnProperty(key)) {
-                let currParam = urlParams[key];
-                if (item === currParam) {
+                let urlParameter = urlParams[key];
+                if (item === urlParameter) {
                     hasInUrl = true;
                 }
             }
@@ -123,7 +123,6 @@ export class FilterComponent implements OnInit {
                 if (this.resultFilter[category] === undefined) {
                     this.resultFilter[category] = [];
                 }
-
                 if (this.resultFilter[category].indexOf(item) < 0) {
                     this.resultFilter[category].push(item);
                 }
@@ -141,5 +140,4 @@ export class FilterComponent implements OnInit {
 
         this.notifyChildren();
     };
-
 }

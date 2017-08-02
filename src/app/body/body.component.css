@@ -26,7 +26,7 @@
     display: inline;
 }
 
-#main .btns-wrap{
+#main .body-buttons-wrap{
     margin-top: 50px;
 }
 
@@ -46,6 +46,6 @@
 #main .button:hover {
     background: #000;
     color: #fff;
-    transition: all 0.5s ease 0.1s;
+    transition: all .5s ease .1s;
     text-decoration: none;
 }

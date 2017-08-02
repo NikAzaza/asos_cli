@@ -1,13 +1,9 @@
-import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, Router} from '@angular/router';
-import { Product } from '../source/Product';
-import { HttpService } from './http.service';
+import '../source/product.interface';
+import { HttpService } from './products-list.service';
 
 import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
-
-import 'rxjs/add/operator/filter';
-import 'rxjs/add/operator/map';
 
 import { LanguageService } from './../language.service';
 
@@ -18,15 +14,15 @@ import { LanguageService } from './../language.service';
     styleUrls: ['./products-list.component.css'],
     providers: [HttpService]
 })
-export class ProductsListComponent implements OnInit, OnDestroy {
-    numOfColumn = 3;
-    @Input() parentSubject: Subject<Object>;
+export class ProductsListComponent implements OnInit {
+    private numOfColumn = 3;
+    @Input() public parentSubject: Subject<Object>;
 
 
-    allProducts: Object = {};
-    products: Product[] = [];
+    private allProducts: Object = {};
+    private products: Product[] = [];
 
-    productsFiles: Object = {
+    private productsFiles: Object = {
         'women': 'products200-women.json',
         'men': 'products200-men.json'
     };
@@ -35,7 +31,7 @@ export class ProductsListComponent implements OnInit, OnDestroy {
                 private router: Router,
                 private langService: LanguageService) {  }
 
-    ngOnInit(): void {
+    ngOnInit() {
         this.reloadProducts();
 
         this.router.events.subscribe(() => {
@@ -54,7 +50,6 @@ export class ProductsListComponent implements OnInit, OnDestroy {
     }
 
     public reloadProducts() {
-       // Using when need to load data from 2 files
         for (let gender in this.productsFiles) {
             if (this.productsFiles.hasOwnProperty(gender)) {
 
@@ -74,13 +69,9 @@ export class ProductsListComponent implements OnInit, OnDestroy {
                     });
             }
         }
-
-        // Use for load from 1 file
-        /*this.httpService.getProducts('products.json')
-                    .subscribe((data)=>this.allProducts = data);*/
     }
 
-    public applyFilter(filter: Object){
+    public applyFilter(filter: Object) {
         this.products = this.allProducts[this.activateRoute.snapshot.params['gender']];
 
         for (let key in filter) {
@@ -104,25 +95,21 @@ export class ProductsListComponent implements OnInit, OnDestroy {
             }
         }
     }
-    
-    public applyUrlFilter(filter: Object){
+
+    public applyUrlFilter(filter: Object) {
         for (let category in filter) {
             if (filter.hasOwnProperty(category)) {
                 let value = filter[category];
 
-                this.products = this.products.filter((product)=>{
+                this.products = this.products.filter((product) => {
                     return (product[category] === value);
                 });
             }
         }
     }
-    
 
-    changeGrid(num: number){
+
+    public changeGrid(num: number) {
         this.numOfColumn = num;
-    }
-    
-    ngOnDestroy() {
-        //this.parentSubject.unsubscribe();
     }
 }

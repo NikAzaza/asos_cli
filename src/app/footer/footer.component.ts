@@ -14,14 +14,14 @@ export class FooterInfo {
     providers: [FooterLinks]
 })
 export class FooterComponent implements OnInit {
-    usersEmail = '';
-    links: Object = {};
-    linksNames: Array<string> = [];
+    private usersEmail: string = '';
+    private links: Object = {};
+    private linksNames: Array<string> = [];
 
-    constructor (private langService: LanguageService,
+    constructor (private languageService: LanguageService,
                  private footerLinks: FooterLinks) { }
 
-    ngOnInit(): void {
+    ngOnInit() {
         this.footerLinks.getLinks().subscribe((obj: Object) => {
             this.links = obj;
             for (let key in obj) {
@@ -29,7 +29,6 @@ export class FooterComponent implements OnInit {
                     this.linksNames.push(key);
                 }
             }
-            console.log(this.links);
         })
     }
 }

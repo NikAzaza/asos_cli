@@ -7,7 +7,7 @@ import 'rxjs/add/operator/map';
 export class FooterLinks {
     constructor (private http: Http) {}
 
-    getLinks(): Observable<Object> {
+    public getLinks(): Observable<Object> {
          return this.http.get('footer-links.json')
             .map((resp: Response) => {
                 let currLinks = resp.json();

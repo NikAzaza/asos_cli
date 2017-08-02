@@ -1,40 +1,31 @@
 <section id="products">
-    <!-- <div class="container"> -->
+    <div class="row" *ngIf="products.length">
 
-        <!-- <div class="col-sm-10 products-list-wrapper"> -->
-            <div class="row" *ngIf="products.length">
+        <span class="pull-right">{{'found products'|translate}}: {{products.length}}</span>
+        <div class="text-center">
+                                                            
+            <button class="btn btn-success" (click)="changeGrid(4)" [ngClass]="{'disabled': numOfColumn==4}">{{'group by'|translate}}: 3</button>
+            <button class="btn btn-success" (click)="changeGrid(3)" [ngClass]="{'disabled': numOfColumn==3}">{{'group by'|translate}}: 4</button>
+        </div>
+    </div>
 
-                <span class="pull-right">{{'found products'|translate}}: {{products.length}}</span>
-                <div class="text-center">
-                                                                    
-                    <button class="btn btn-success" (click)="changeGrid(4)" [ngClass]="{'disabled': numOfColumn==4}">{{'group by'|translate}}: 3</button>
-                    <button class="btn btn-success" (click)="changeGrid(3)" [ngClass]="{'disabled': numOfColumn==3}">{{'group by'|translate}}: 4</button>
-                </div>
-            </div>
+    <ul class="products">
+        <li class="products-item col-sm-{{numOfColumn}} " 
+                    *ngFor="let product of products">
+            <a href="" class="toProduct">
+                <img src={{product.images[0]}}
+                    alt={{product.name}} class="product-image">
+                <span class="product-name">{{product.name}}</span>
+            </a>
+            <span class="product-cost">{{product.price}}</span>
+        </li>
+    </ul>
 
-            <ul class="products">
-                <li class="products-item col-sm-{{numOfColumn}} " 
-                            *ngFor="let product of products">
-                    <a href="" class="toProduct">
-                        <img src={{product.images[0]}}
-                            alt={{product.name}} class="product-image">
-                        <span class="product-name">{{product.name}}</span>
-                    </a>
-                    <span class="product-cost">{{product.price}}</span>
-                    <span>{{product.type}}</span><br>
-                    <span>{{product.brand}}</span><br>
-                    <span>{{product.size}}</span><br>
-                    <span>{{product.color}}</span>
-                </li>
-            </ul>
-
-            <div id="empty-products-list" *ngIf="!products.length">
-                <div class="row">
-                    <h1>{{'not-found'|translate}} :(</h1>
-                    <i class="glyphicon glyphicon-ban-circle"></i> 
-                    <p>{{'other-filter'|translate}}</p>
-                </div>
-            </div>
-        <!-- </div> -->
-    <!-- </div> -->
+    <div id="empty-products-list" *ngIf="!products.length">
+        <div class="row">
+            <h1>{{'not-found'|translate}} :(</h1>
+            <i class="glyphicon glyphicon-ban-circle"></i> 
+            <p>{{'other-filter'|translate}}</p>
+        </div>
+    </div>
 </section>

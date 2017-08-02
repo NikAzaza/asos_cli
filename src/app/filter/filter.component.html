@@ -6,24 +6,24 @@
                  <button (click)="clearFilter()" class="btn btn-danger">{{'clear' | translate}}</button>
             </div>
             
-            <div class="category-wrap" *ngFor="let name of categoryNames; let i = index">
+            <div class="category-wrap" *ngFor="let name of categoryNames; let categoryNumber = index">
                 <div class="panel-group" id="collapse-group">
 
                     <div class="panel-heading">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#collapse-group" href="#filter-cat{{i}}">
+                            <a data-toggle="collapse" data-parent="#collapse-group" href="#filter-cat{{categoryNumber}}">
                                 <span class="caret"></span>
                                 {{name | translate}}
                             </a>
                         </h4>
                     </div><!-- End of panel-heading-->
 
-                    <div id="filter-cat{{i}}" class="panel-collapse collapse in">
+                    <div id="filter-cat{{categoryNumber}}" class="panel-collapse collapse in">
                         <div class="panel-body">
                             <ul class="filter-cat-list">
-                               <li *ngFor="let item of categoryData[i]; let ind = index;">
-                                    <input type="checkbox" id="{{i}}_{{ind}}">
-                                    <label for="{{i}}_{{ind}}" (click)="applyFilter(i,ind)">
+                               <li *ngFor="let item of categoryData[categoryNumber]; let itemNumber = index;">
+                                    <input type="checkbox" id="{{categoryNumber}}_{{itemNumber}}">
+                                    <label for="{{categoryNumber}}_{{itemNumber}}" (click)="applyFilter(categoryNumber, itemNumber)">
                                         {{item | translate}}
                                     </label>    
                                 </li>
