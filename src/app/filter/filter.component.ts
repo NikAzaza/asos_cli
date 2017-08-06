@@ -7,7 +7,6 @@ import { LanguageService } from './../language.service';
 import { Subject } from 'rxjs/Subject';
 import 'rxjs/add/operator/map';
 
-import { Product } from './../source/product';
 
 @Component({
     moduleId: module.id,

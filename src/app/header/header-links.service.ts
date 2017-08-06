@@ -1,6 +1,3 @@
-import { HeaderLinkItem } from './../source/header-link-item';
-import { Product } from './../source/product';
-
 import { ElementRef, Renderer2 } from '@angular/core';
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';

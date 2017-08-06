@@ -4,8 +4,6 @@ import { NgForm} from '@angular/forms';
 import { HeaderLinksService } from './header-links.service';
 import { LanguageService } from './../language.service';
 
-import { LinkItem } from './../source/link-item';
-import { HeaderLinkItem } from './../source/header-link-item';
 
 @Component({
     moduleId: module.id,
